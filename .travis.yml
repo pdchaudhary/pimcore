@@ -58,14 +58,17 @@ jobs:
 
   include:
     # Symfony 3.4 all tests
-    - name: "All Tests - PHP 7.2 Symfony 3.4"
+    - name: "All Tests - PHP 7.2 Symfony 3.4 - Maria 10.2"
       os: linux
       sudo: required
       php: 7.2
+      addons:
+          mariadb: '10.2'
       env:
         - SYMFONY_VERSION="^3.4"
 
-    - name: "All Tests - PHP 7.3 Symfony 3.4"
+
+    - name: "All Tests - PHP 7.3 Symfony 3.4 - Maria 10.3"
       os: linux
       sudo: required
       php: 7.3
@@ -73,23 +76,26 @@ jobs:
         - SYMFONY_VERSION="^3.4"
 
     # Symfony 4.* all tests
-    - name: "All Tests - PHP 7.2 Symfony 4"
+    - name: "All Tests - PHP 7.2 Symfony 4 - MySQL 5.7"
       os: linux
       sudo: required
       php: 7.2
+      services:
+          - redis
+          - mysql
 
-    - name: "All Tests - PHP 7.3 Symfony 4"
+    - name: "All Tests - PHP 7.3 Symfony 4 - Maria 10.3"
       os: linux
       sudo: required
       php: 7.3
 
-    - name: "All Tests - PHP 7.4 Symfony 4"
+    - name: "All Tests - PHP 7.4 Symfony 4 - Maria 10.3"
       os: linux
       sudo: required
       php: 7.4
 
     # Other Tests
-    - name: "REST Tests - PHP 7.2 Symfony 3.4"
+    - name: "REST Tests - PHP 7.2 Symfony 3.4 - Maria 10.3"
       os: linux
       sudo: required
       php: 7.2
@@ -98,7 +104,7 @@ jobs:
         - PIMCORE_TEST_SUITE=rest
         - PIMCORE_TEST_ENV=http
 
-    - name: "REST Tests - PHP 7.3 Symfony 3.4"
+    - name: "REST Tests - PHP 7.3 Symfony 3.4 - Maria 10.3"
       os: linux
       sudo: required
       php: 7.3
